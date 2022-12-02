@@ -1,5 +1,4 @@
 import os
-import numpy as np
 
 from tools import textlist as tl
 from tools import sumlist as sl
@@ -18,7 +17,7 @@ def day1():
     filepath = os.path.join(cwd, day, file)
     
     # Get a list of the data in the file
-    elves = tl.texttolist(filepath)
+    elves = tl.textto2d(filepath)
     
     calories = []
     

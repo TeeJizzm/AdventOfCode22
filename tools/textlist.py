@@ -1,10 +1,11 @@
 def texttolist(filepath):
     with open(filepath, "r") as file:
         
-        data = file.read()
+        text = file.read()
         
-        list = data.replace("\n", ",")
-        list = list.split(",,")
+        data = text.split("\n\n")
+        
+        list = [item.split("\n") for item in data]
         
         return list
         

@@ -2,20 +2,38 @@ import os
 import numpy as np
 
 from tools import textlist as tl
+from tools import sumlist as sl
 
 ############################
 
 def day1():
-    file = "example1.txt"
     
+    # Change file
+    ####### 
+    file = "input1.txt"
+    #######
+    
+    # Get absolute filepath of file
     cwd = os.getcwd()
     filepath = os.path.join(cwd, day, file)
     
-    list = tl.texttolist(filepath)
+    # Get a list of the data in the file
+    elves = tl.texttolist(filepath)
     
-    print(list)
+    calories = []
+    
+    for elf in elves:
+        calorie = [int(item) for item in elf]
+        calories.append(sum(calorie))
+    
+    part1 = sl.sumtopoflist(calories)
+    part2 = sl.sumtopoflist(calories, 3)
+    
+    print(part1, "\n", part2)
     
 
+    
+    
     
 ############################
 

@@ -1,6 +1,7 @@
 import os
 
 from tools import texttolists as tl
+from tools import rockpaperscissors as rps
 
 ############################
 
@@ -9,9 +10,23 @@ def day2(filepath):
 
     rounds = tl.toLists(filepath, "\n", " ")
 
+    opponentScore, responseScore = 0, 0
+
     for round in rounds:
-        print("Opponent plays: ", round[0])
-        print("Response plays: ", round[1])
+        
+        resPlay = rps.playPoints(round[1])
+        oppPlay = rps.playPoints(round[0])        
+
+        resScore = rps.scorePoints(oppPlay, resPlay)
+        oppScore = 6 - resScore
+
+        responseScore += (resScore + resPlay)
+        opponentScore += (oppScore + oppPlay)
+
+        print(oppPlay)
+        print(resPlay)
+
+    print(responseScore)
 
 ############################
 

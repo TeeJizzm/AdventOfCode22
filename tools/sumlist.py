@@ -1,16 +1,13 @@
-# Calculates the sum of the X highest values in a given list
-# X=1 by default, returns highest value in the list
+# Calculates the sum of the X largest values in a given list
+# X=1 by default, returns largest value in the list
 
 ###########################
 
-def sumtopoflist(list, topnumbers=1):
+def sumtoplist(list, X=1):
     
-    list.sort(reverse=True) # Sort list highest to lowest
+    list.sort(reverse=True) # Sort list largest to smallest
     
-    total = 0 # Initialise as 0
-    for i in range(topnumbers): # For X highest values
-        total += list[i] # Running total of highest values
-    
-    return total
+    # Sums X number of largest values and returns
+    return sum([list[x] for x in range(X)])
 
 ########### EOF ############

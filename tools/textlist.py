@@ -8,14 +8,11 @@ def textto2d(filepath):
     # Open file, clean up memory after
     with open(filepath, "r") as file:
         
-        # Read data
-        text = file.read()
+        text = file.read() # Read data
         
-        # Divide data into groups
-        data = text.split("\n\n")
+        groups = text.split("\n\n") # Divide data into a list of groups by double endlines
         
-        # Divide groups into items
-        list = [item.split("\n") for item in data]
+        list = [item.split("\n") for item in groups] # Divide groups into lists of items
         
         # return list of lists
         return list

@@ -16,23 +16,21 @@ def day1():
     cwd = os.getcwd()
     filepath = os.path.join(cwd, day, file)
     
-    # Get a list of the data in the file
+    # Get a list of elves from the file
     elves = tl.textto2d(filepath)
     
-    calories = []
+    calories = [] # empty list
     
+    # Calculate total calories carried by each elf
     for elf in elves:
-        calorie = [int(item) for item in elf]
-        calories.append(sum(calorie))
+        calorie = [int(item) for item in elf] # Convert each elf's item's calories to integer
+        calories.append(sum(calorie)) # Calculate total calories carried per elf
     
-    part1 = sl.sumtopoflist(calories)
-    part2 = sl.sumtopoflist(calories, 3)
+    part1 = sl.sumtoplist(calories) # calculate answer to part 1
+    part2 = sl.sumtoplist(calories, 3) # calculate answer to part 2
     
-    print(part1, "\n", part2)
-    
-
-    
-    
+    print("Answer to Part 1: ", part1)
+    print("Answer to Part 2: ", part2)
     
 ############################
 

@@ -1,23 +1,16 @@
 import os
 
-from tools import textlist as tl
+from tools import texttolists as tl
 from tools import sumlist as sl
 
 ############################
 
-def day1():
-    
-    # Change file
-    ####### 
-    file = "input1.txt"
-    #######
-    
-    # Get absolute filepath of file
-    cwd = os.getcwd()
-    filepath = os.path.join(cwd, day, file)
+def day1(filepath):
     
     # Get a list of elves from the file
-    elves = tl.textto2d(filepath)
+    ## \n\n to divide data into groups/elves
+    ## \n to divide the groups into items/calories
+    elves = tl.tolists(filepath, "\n\n", "\n")
     
     calories = [] # empty list
     
@@ -34,8 +27,19 @@ def day1():
     
 ############################
 
+# Run script
+
 if __name__ == "__main__":
+    # Change file
+    #######
     day = "day01"
-    day1()
+    file = "input1.txt"
+    #######
+    
+    # Get absolute filepath of file
+    cwd = os.getcwd()
+    filepath = os.path.join(cwd, day, file)
+
+    day1(filepath)
     
 ########### EOF ############

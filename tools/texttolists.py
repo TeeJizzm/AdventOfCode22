@@ -3,16 +3,18 @@
 
 ###########################
 
-def textto2d(filepath):
+def toLists(filepath, group, part):
     
     # Open file, clean up memory after
     with open(filepath, "r") as file:
         
         text = file.read() # Read data
         
-        groups = text.split("\n\n") # Divide data into a list of groups by double endlines
+        # Split data into groups as list
+        groups = text.split(str(group))
         
-        list = [item.split("\n") for item in groups] # Divide groups into lists of items
+        # Split each group into parts as list of lists
+        list = [item.split(str(part)) for item in groups]
         
         # return list of lists
         return list

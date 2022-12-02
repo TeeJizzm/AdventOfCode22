@@ -3,7 +3,7 @@
 
 ###########################
 
-def sumtoplist(list, X=1):
+def sumTopList(list, X=1):
     
     list.sort(reverse=True) # Sort list largest to smallest
     

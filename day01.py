@@ -27,7 +27,7 @@ def day1(filepath):
     
 ############################
 
-# Run script
+# Run script with chosen file
 
 if __name__ == "__main__":
     # Change file

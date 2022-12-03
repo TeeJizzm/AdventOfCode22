@@ -5,13 +5,13 @@ from tools import rockpaperscissors as rps
 
 ############################
 
-points = {
-    "A" : 1,
-    "B" : 2,
-    "C" : 3,
-    "X" : 1,
-    "Y" : 2,
-    "Z" : 3
+pointsPlayed = {
+    "A" : 1, # Rock
+    "B" : 2, # Paper
+    "C" : 3, # Scissors
+    "X" : 1, # Rock
+    "Y" : 2, # Paper
+    "Z" : 3  # Scissors
     }
 
 rpsMatrix = [
@@ -27,21 +27,14 @@ def day2(filepath):
 
     rounds = tl.toLists(filepath, "\n", " ")
 
-    playerPoints = sum(points[player] + rpsMatrix[points[player]-1][points[opponent]-1] for opponent, player in rounds)
-    opponentPoints = sum(points[player] + (6 - rpsMatrix[points[player]-1][points[opponent]-1]) for opponent, player in rounds)
+    ## Part 1
+    roundScores = [pointsPlayed[player] + rpsMatrix[pointsPlayed[player]-1][pointsPlayed[opponent]-1] for  opponent, player in rounds]
+    #roundScoresOpp = [pointsPlayed[opponent] + rpsMatrix[pointsPlayed[opponent]-1][pointsPlayed[player]-1] for  opponent, player in rounds]
 
-    opponentScore, playerScore, = 0, 0
+    print("Short calc= ", sum(roundScores), " len ", len(roundScores))
 
-    roundScore = []
+    ## Part 2
 
-    for opponent,player in rounds:
-        
-        roundScore.append(points[player] + rpsMatrix[points[player]-1][points[opponent]-1])
-
-    playerScore = sum(roundScore)
-
-    print("Short calc= ", playerScore, " len ", len(roundScore))
-    print("One liner = ", playerPoints)
 
 ############################
 

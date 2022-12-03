@@ -1,11 +1,10 @@
 import os
 
 from tools import texttolists as tl
-from tools import rockpaperscissors as rps
 
 ############################
 
-pointsPlayed = {
+decode = {
     "A" : 1, # Rock
     "B" : 2, # Paper
     "C" : 3, # Scissors
@@ -14,27 +13,37 @@ pointsPlayed = {
     "Z" : 3  # Scissors
     }
 
-rpsMatrix = [
-        [3,0,6], # 6 points for a win,
-        [6,3,0], # 3 points for a tie,
-        [0,6,3]  # 0 points for a loss
-        ]  
+scoreMatrix = [
+    [3,0,6], # 6 points for a win,
+    [6,3,0], # 3 points for a tie,
+    [0,6,3]  # 0 points for a loss
+]  
+
+responseMatrix = [
+    [3,1,2], # 1 for rock
+    [1,2,3], # 2 for paper
+    [2,3,1]  # 3 for scissors
+]
 
 ############################
 
-def day2(filepath):
+def day2(rounds):
     print("Day 2 - Rock, Paper, Scissors")
 
     rounds = tl.toLists(filepath, "\n", " ")
 
     ## Part 1
-    roundScores = [pointsPlayed[player] + rpsMatrix[pointsPlayed[player]-1][pointsPlayed[opponent]-1] for  opponent, player in rounds]
-    #roundScoresOpp = [pointsPlayed[opponent] + rpsMatrix[pointsPlayed[opponent]-1][pointsPlayed[player]-1] for  opponent, player in rounds]
+    roundScores = [decode[player] + scoreMatrix[decode[player]-1][decode[opponent]-1] for  opponent, player in rounds]
+    #roundScoresOpp = [played[opponent] + rpsMatrix[played[opponent]-1][played[player]-1] for  opponent, player in rounds]
 
-    print("Short calc= ", sum(roundScores), " len ", len(roundScores))
+    print("Part 1 score: ", sum(roundScores))
 
     ## Part 2
+    score = {1:0, 2:3, 3:6}
 
+    newScores = [score[decode[player]] + responseMatrix[decode[player]-1][decode[opponent]-1] for opponent, player in rounds]
+
+    print("Part 2 score: ", sum(newScores))
 
 ############################
 

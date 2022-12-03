@@ -77,4 +77,4 @@ Now that you're correctly decrypting the ultra top secret strategy guide, you wo
 
 ### Answer
 
-``
+`12382`

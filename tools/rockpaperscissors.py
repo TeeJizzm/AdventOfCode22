@@ -21,14 +21,14 @@ def playPoints(enc):
 # R=1, P=2, S=3; 
 # Output player points
 
-def scorePoints(opponent, player):
+def scorePoints(player, opponent):
 
     # Weighted matrix with winning values
     rpsMatrix = [[3,0,6], # 6 points for a win,
                 [6,3,0],  # 3 points for a tie,
                 [0,6,3]]  # 0 points for a loss
     
-    return rpsMatrix[opponent-1][player-1]
+    return rpsMatrix[opponent][player]
 
     # Calculate points for scoring
 

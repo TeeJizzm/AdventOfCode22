@@ -30,34 +30,17 @@ def day2(filepath):
     playerPoints = sum(points[player] + rpsMatrix[points[player]-1][points[opponent]-1] for opponent, player in rounds)
     opponentPoints = sum(points[player] + (6 - rpsMatrix[points[player]-1][points[opponent]-1]) for opponent, player in rounds)
 
-    opponentScore, playerScore, playerScore2 = 0, 0, 0
+    opponentScore, playerScore, = 0, 0
 
     roundScore = []
 
     for opponent,player in rounds:
         
-        roundScore.append(points[player] + rpsMatrix[points[opponent]-1][points[player]-1])
-
-
-        pointsOpp, pointsPla = points[opponent], points[player]
-
-        #print("Played: ", pointsOpp, " ", pointsPla)
-
-        scorePla = rpsMatrix[pointsOpp-1][pointsPla-1]
-        scoreOpp = 6 - scorePla
-
-        roundPla = pointsPla + scorePla
-        roundOpp = pointsOpp + scoreOpp
-
-        playerScore2 += roundPla
-        opponentScore += roundOpp
+        roundScore.append(points[player] + rpsMatrix[points[player]-1][points[opponent]-1])
 
     playerScore = sum(roundScore)
 
-    print("Short calc= ", playerScore)
-
-    print("Long Calc = ", playerScore2)
-
+    print("Short calc= ", playerScore, " len ", len(roundScore))
     print("One liner = ", playerPoints)
 
 ############################

@@ -10,6 +10,7 @@ def day03(filepath):
         
     items_in_both = []
     
+    ## Part 1 ##
     # For each rucksack
     for rucksack in rucksacks:
         
@@ -20,11 +21,22 @@ def day03(filepath):
         # Compare strings, find common items
         items_in_both.extend(set([character for character in part1 if part2.__contains__(character)]))
     
-    ## Part 1
     # Sum of priorities of common items
     priorityTotal = sum((priority.index(str(char)) + 1) for char in items_in_both)
-    print(priorityTotal)
+    print("Part 1: ", priorityTotal)
     
+    ## Part 2 ##
+    
+    items_in_group = []
+    # For each 3 rucksacks in a group
+    for i in range(0, len(rucksacks), 3):
+        group = rucksacks[i:i+3]
+        items_in_group.extend(set(c for c in group[0] if group[1].__contains__(c) and group[2].__contains__(c)))
+        print(group)
+    
+    groupTotal = sum((priority.index(str(char)) + 1) for char in items_in_group)    
+    print(items_in_group)
+    print(groupTotal)
         
 ############################
 

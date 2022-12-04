@@ -1,6 +1,6 @@
 import os
 import sys
-sys.path.append(str(os.path.join(os.getcwd(), 'tools')))
+sys.path.append(os.path.join(os.getcwd(), 'tools'))
 
 # Index + 1 for priority of a character
 priority = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"

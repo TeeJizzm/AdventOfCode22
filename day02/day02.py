@@ -1,4 +1,6 @@
 import os
+import sys
+sys.path.append(str(os.path.join(os.getcwd(), 'tools')))
 
 from tools import texttolists as tl
 
@@ -36,14 +38,14 @@ def day2(rounds):
     roundScores = [decode[player] + scoreMatrix[decode[player]-1][decode[opponent]-1] for  opponent, player in rounds]
     #roundScoresOpp = [played[opponent] + rpsMatrix[played[opponent]-1][played[player]-1] for  opponent, player in rounds]
 
-    print("Part 1 score: ", sum(roundScores))
+    print("Part 1: ", sum(roundScores))
 
     ## Part 2
     score = {1:0, 2:3, 3:6}
 
     newScores = [score[decode[player]] + responseMatrix[decode[player]-1][decode[opponent]-1] for opponent, player in rounds]
 
-    print("Part 2 score: ", sum(newScores))
+    print("Part 2: ", sum(newScores))
 
 ############################
 
@@ -57,8 +59,7 @@ if __name__ == "__main__":
     #######
     
     # Get absolute filepath of file
-    cwd = os.getcwd()
-    filepath = os.path.join(cwd, day, file)
+    filepath = os.path.join(os.getcwd(), day, file)
     
     day2(filepath)
 

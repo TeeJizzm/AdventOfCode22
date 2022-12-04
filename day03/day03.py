@@ -1,9 +1,13 @@
 import os
+import sys
+sys.path.append(str(os.path.join(os.getcwd(), 'tools')))
 
 # Index + 1 for priority of a character
 priority = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 def day03(filepath):
+    print("Day 3 - Rucksack Reorganization")
+    
     # Get list of rucksack contents
     with open(filepath) as file:
         rucksacks = file.read().splitlines()
@@ -32,11 +36,9 @@ def day03(filepath):
     for i in range(0, len(rucksacks), 3):
         group = rucksacks[i:i+3]
         items_in_group.extend(set(c for c in group[0] if group[1].__contains__(c) and group[2].__contains__(c)))
-        print(group)
     
-    groupTotal = sum((priority.index(str(char)) + 1) for char in items_in_group)    
-    print(items_in_group)
-    print(groupTotal)
+    groupTotal = sum((priority.index(str(char)) + 1) for char in items_in_group)
+    print("Part 2: ", groupTotal)
         
 ############################
 
@@ -50,8 +52,7 @@ if __name__ == "__main__":
     #######
 
     # Get absolute filepath of file
-    cwd = os.getcwd()
-    filepath = os.path.join(cwd, day, file)
+    filepath = os.path.join(os.getcwd(), day, file)
     
     day03(filepath)
 

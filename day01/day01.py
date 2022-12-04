@@ -1,4 +1,6 @@
 import os
+import sys
+sys.path.append(str(os.path.join(os.getcwd(), 'tools')))
 
 from tools import texttolists as tl
 from tools import sumlist as sl
@@ -6,11 +8,12 @@ from tools import sumlist as sl
 ############################
 
 def day1(filepath):
+    print("Day 1 - Calorie Counting")
     
     # Get a list of elves from the file
     ## \n\n to divide data into groups/elves
     ## \n to divide the groups into items/calories
-    elves = tl.tolists(filepath, "\n\n", "\n")
+    elves = tl.toLists(filepath, "\n\n", "\n")
     
     calories = [] # empty list
     
@@ -19,11 +22,11 @@ def day1(filepath):
         calorie = [int(item) for item in elf] # Convert each elf's item's calories to integer
         calories.append(sum(calorie)) # Calculate total calories carried per elf
     
-    part1 = sl.sumtoplist(calories) # calculate answer to part 1
-    part2 = sl.sumtoplist(calories, 3) # calculate answer to part 2
+    part1 = sl.sumTopList(calories) # calculate answer to part 1
+    part2 = sl.sumTopList(calories, 3) # calculate answer to part 2
     
-    print("Answer to Part 1: ", part1)
-    print("Answer to Part 2: ", part2)
+    print("Part 1: ", part1)
+    print("Part 2: ", part2)
     
 ############################
 
@@ -37,8 +40,7 @@ if __name__ == "__main__":
     #######
     
     # Get absolute filepath of file
-    cwd = os.getcwd()
-    filepath = os.path.join(cwd, day, file)
+    filepath = os.path.join(os.getcwd(), day, file)
 
     day1(filepath)
     

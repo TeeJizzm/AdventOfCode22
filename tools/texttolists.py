@@ -3,7 +3,7 @@
 
 ###########################
 
-def toLists(filepath, group, part):
+def toLists(filepath, group="\n", part=","):
     
     # Open file, clean up memory after
     with open(filepath, "r") as file:

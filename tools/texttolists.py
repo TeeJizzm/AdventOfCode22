@@ -3,7 +3,7 @@
 
 ###########################
 
-def toLists(filepath, group="\n", part=","):
+def toLists(filepath, group="\n", item=","):
     
     # Open file, clean up memory after
     with open(filepath, "r") as file:
@@ -14,7 +14,7 @@ def toLists(filepath, group="\n", part=","):
         groups = text.split(str(group))
         
         # Split each group into parts as list of lists
-        list = [item.split(str(part)) for item in groups]
+        list = [items.split(str(item)) for items in groups]
         
         # return list of lists
         return list

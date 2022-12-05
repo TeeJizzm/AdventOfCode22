@@ -7,12 +7,10 @@ import tools.texttolists as tl
 def day05(filepath):
     print("Day 5 - Supply Stacks")
 
-    data = tl.toLists(filepath, "\n\n", "\n")
-    print(data)
+    crates, instructions = tl.toLists(filepath, "\n\n", "\n")
+    print(crates)
 
-    with open(filepath, "r") as file:
-        crates, instructions = file.read().split("\n\n")
-        print(crates.split("\n"))
+
 
 ############################
 

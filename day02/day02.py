@@ -1,6 +1,6 @@
 import os
 
-from tools import texttolists as tl
+import tools.texttolists as tl
 
 ############################
 

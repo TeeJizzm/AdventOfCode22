@@ -1,7 +1,7 @@
 import os
 
-from tools import texttolists as tl
-from tools import sumlist as sl
+import tools.texttolists as tl
+import tools.sumlist as sl
 
 ############################
 

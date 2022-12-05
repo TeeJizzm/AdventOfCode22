@@ -9,6 +9,19 @@ def day05(filepath):
 
     crates, instructions = tl.toLists(filepath, "\n\n", "\n")
     print(crates)
+    
+    ### Decode Crates
+    
+    crateNums = crates.pop()
+    
+    for i in range(1, len(crateNums), 4):
+        print(crateNums[i])
+    
+    
+    
+    ### Decode instructions
+    
+    
 
 
 

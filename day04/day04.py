@@ -4,6 +4,8 @@ sys.path.append(os.path.join(os.getcwd(), "tools"))
 
 from tools import texttolists as tl
 
+############################
+
 def isContained(L1, H1, L2, H2):
     if int(L1)-int(L2) <= 0 and int(H1)-int(H2) >= 0:
         return 1 # If pair1 contains pair2
@@ -19,6 +21,8 @@ def isOverlapped(L1, H1, L2, H2):
         return 1 # If pair1 overlaps pair2
     else:
         return 0
+
+############################
 
 def day04(filepath):
     print("Day 4 - Camp Cleanup")

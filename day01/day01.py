@@ -1,6 +1,4 @@
 import os
-import sys
-sys.path.append(os.path.join(os.getcwd(), 'tools'))
 
 from tools import texttolists as tl
 from tools import sumlist as sl

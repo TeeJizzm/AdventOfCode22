@@ -1,14 +1,14 @@
 import os
-import sys
 
-sys.path.append(os.path.join(os.path.realpath(os.getcwd()), "tools"))
-
-from ..tools import texttolists as tl
+import tools.texttolists as tl
 
 ############################
 
 def day05(filepath):
     print("Day 5 - Supply Stacks")
+
+    data = tl.toLists(filepath, "\n\n", "\n")
+    print(data)
 
     with open(filepath, "r") as file:
         crates, instructions = file.read().split("\n\n")

@@ -4,20 +4,15 @@ import tools.texttolists as tl
 
 ############################
 
-def cargoCrane9000(crates, mv, frm, to):
-    print("Move ", mv, " from ", frm, " to ", to)
+def cargoCrane9000(columns, mv, frm, to):
 
     for moves in range(mv):
-        crates[to-1].append(crates[frm-1].pop())
+        columns[to-1].append(columns[frm-1].pop(0))
 
-def cargoCrane9001(crates, mv, frm, to):
-    print("Move ", mv, " from ", frm, " to ", to) 
+def cargoCrane9001(columns, mv, frm, to):
 
-    temp = []
-    for moves in range(mv):
-        crates[to-1].append(crates[frm-1].pop())
-
-    #crates[to-1].append(temp.reverse())
+    columns[to-1].extend(columns[frm-1][-mv:])
+    columns[frm-1].pop(0)
 
 
 
@@ -32,29 +27,31 @@ def day05(filepath):
     crateIns.reverse()
 
     crates = []
+    crates2 = []
 
     # Assign crates to variables
     for i in range(1, len(crateNums), 4):
         #print(crateNums[i])
 
         crate = []
+        crate2 = []
         for j in range(len(crateIns)):
             if crateIns[j][i] != " ":
                 crate.append(crateIns[j][i])
+                crate2.append(crateIns[j][i])
     
         crates.append(crate) # Crates list finished
+        crates2.append(crate2)
     
-    crates2 = crates
     print(crates2)
-    print(crates)
     
     ### Decode instructions
     for instruction in instructions:
         _,mv,_,frm,_,to = instruction.split(" ")
+        #print("Move ", mv, " from ", frm, " to ", to)
         cargoCrane9000(crates, int(mv), int(frm), int(to)) # perform movements
-        cargoCrane9001(crates2, int(mv), int(frm), int(to))
-
-        print(crates)
+    
+        cargoCrane9001(crates2, int(mv), int(frm), int(to)) # perform movements
         print(crates2)
 
     ### Results

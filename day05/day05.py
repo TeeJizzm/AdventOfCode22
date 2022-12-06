@@ -7,12 +7,13 @@ import tools.texttolists as tl
 def cargoCrane9000(columns, mv, frm, to):
 
     for moves in range(mv):
-        columns[to-1].append(columns[frm-1].pop(0))
+        columns[to-1].append(columns[frm-1].pop())
 
 def cargoCrane9001(columns, mv, frm, to):
 
     columns[to-1].extend(columns[frm-1][-mv:])
-    columns[frm-1].pop(0)
+    for moves in range(mv):
+        columns[frm-1].pop()
 
 
 
@@ -43,16 +44,17 @@ def day05(filepath):
         crates.append(crate) # Crates list finished
         crates2.append(crate2)
     
-    print(crates2)
+    print("a ", crates)
+    print("b ", crates2)
     
     ### Decode instructions
     for instruction in instructions:
         _,mv,_,frm,_,to = instruction.split(" ")
         #print("Move ", mv, " from ", frm, " to ", to)
         cargoCrane9000(crates, int(mv), int(frm), int(to)) # perform movements
-    
+        #print("a ", crates)
         cargoCrane9001(crates2, int(mv), int(frm), int(to)) # perform movements
-        print(crates2)
+        print("b ", crates2)
 
     ### Results
     part1, part2 = "", ""
@@ -68,7 +70,7 @@ if __name__ == "__main__":
     # Change file
     #######
     day = "day05"
-    file = "example.txt"
+    file = "input.txt"
     #######
 
     # Get absolute filepath of file

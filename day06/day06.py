@@ -24,12 +24,12 @@ def day06(filepath):
     messages = tl.toLists(filepath)
 
     for message in messages:
-        print(message[0])
+        #print(message[0])
         startOfPacket = findRepeats(message[0], 4)
         startOfMessage = findRepeats(message[0], 14)
 
-        print(startOfPacket)
-        print(startOfMessage)
+        print("Part 1:", startOfPacket)
+        print("Part 2:", startOfMessage)
 
 
 ############################

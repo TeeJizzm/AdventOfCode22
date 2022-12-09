@@ -44,8 +44,8 @@ def day05(filepath):
         crates.append(crate) # Crates list finished
         crates2.append(crate2)
     
-    print("a ", crates)
-    print("b ", crates2)
+    #print("a ", crates)
+    #print("b ", crates2)
     
     ### Decode instructions
     for instruction in instructions:
@@ -54,7 +54,7 @@ def day05(filepath):
         cargoCrane9000(crates, int(mv), int(frm), int(to)) # perform movements
         #print("a ", crates)
         cargoCrane9001(crates2, int(mv), int(frm), int(to)) # perform movements
-        print("b ", crates2)
+        #print("b ", crates2)
 
     ### Results
     part1, part2 = "", ""

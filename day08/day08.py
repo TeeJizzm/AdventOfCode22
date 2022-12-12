@@ -22,22 +22,16 @@ def isVisible(trees, x, y):
 
 def isScenic(trees, x, y):
 
-    print(" # ", trees[:x, y], trees[x, y], trees[x+1:, y])
+    #print(" # ", trees[:x, y], trees[x, y], trees[x+1:, y])
 
-    up = seesTrees(trees[x, y], (trees[x, y-1::-1])) 
-    down = seesTrees(trees[x, y], trees[x, y+1:]) 
-    left = seesTrees(trees[x, y], (trees[x-1::-1, y])) 
-    right = seesTrees(trees[x, y], trees[x+1:, y])
-    
-    print(up, down, left, right)
-
-    score = up * down * left * right
-
-    return score
+    return (seesTrees(trees[x, y], (trees[x, y-1::-1])) *
+            seesTrees(trees[x, y], trees[x, y+1:]) *
+            seesTrees(trees[x, y], (trees[x-1::-1, y])) *
+            seesTrees(trees[x, y], trees[x+1:, y])
+            )
     
 
 def seesEdge(tree, row):
-    #print(tree, ":", row)
     if tree > max(row):
         return True
     else:
@@ -45,11 +39,9 @@ def seesEdge(tree, row):
 
 def seesTrees(tree, row):
     # Return number of trees until view is blocked
-    if tree > max(row): # No trees block view, return number of trees
-        print("len", len(row), row)
+    if tree > max(row): # Return number of trees seen
         return len(row)
     else: # Return first index of blocking tree
-        print("fst", np.where(tree <= row)[0][0] + 1, row)
         return (np.where(tree <= row)[0][0]+1)
 
 
@@ -81,6 +73,7 @@ def day08(filepath):
             visibleTrees += isVisible(trees, x, y)
             scenicScore.append(isScenic(trees, x, y))
 
+    ## Results
     print("Part 1: ", visibleTrees)
     print("Part 2: ", max(scenicScore))
 
@@ -92,7 +85,7 @@ if __name__ == "__main__":
     # Change file
     #######
     day = "day08" 
-    file = "example.txt"
+    file = "input.txt"
     #######
     
     # Get absolute filepath of file

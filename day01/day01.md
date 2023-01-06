@@ -72,7 +72,7 @@ Use data saved in *input1.txt*.
 
 ### Answer
 
-For dataset in *input1.txt*, the correct answer is **70296**.
+`70296*`
 
 ## Part 2
 
@@ -86,4 +86,4 @@ In the example above, the top three Elves are the fourth Elf (with 24000 Calorie
 
 ### Answer
 
-For dataset in *input1.txt*, the correct answer is **205381**
+`205381`

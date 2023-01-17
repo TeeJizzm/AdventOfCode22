@@ -4,8 +4,8 @@ import tools.texttolists as tl
 
 ############################
 
-def day##(filepath):
-    print("Day ## - Name")
+def dayXX(filepath):
+    print("Day XX - Name")
     
     
     
@@ -16,14 +16,14 @@ def day##(filepath):
 if __name__ == "__main__":
     # Change file
     #######
-    day = "day##" 
+    day = "dayXX" 
     file = "example.txt"
     #######
     
     # Get absolute filepath of file
     filepath = os.path.join(os.getcwd(), day, file)
     
-    day##(filepath)
+    dayXX(filepath)
 
     
 ########### EOF ############

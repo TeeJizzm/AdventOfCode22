@@ -4,7 +4,7 @@ import tools.texttolists as tl
 
 ############################
 
-def dayXX(filepath):
+def dayXX(text):
     print("Day XX - Name")
     
     
@@ -23,7 +23,12 @@ if __name__ == "__main__":
     # Get absolute filepath of file
     filepath = os.path.join(os.getcwd(), day, file)
     
-    dayXX(filepath)
+    # Open file, clean up memory after
+    with open(filepath, "r") as file:
+        
+        text = file.read() # Read data
+
+    dayXX(text)
 
     
 ########### EOF ############

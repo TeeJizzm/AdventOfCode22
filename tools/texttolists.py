@@ -3,15 +3,16 @@
 
 ###########################
 
-def toLists(text, group="\n", item=","):
-        
-    # Split data into groups as list
-    groups = text.split(str(group))
-        
-    # Split each group into parts as list of lists
-    list = [items.split(str(item)) for items in groups]
+def to2dLists(text, group="\n", item=","):
+
+    # Split text into groups, split groups into items
+    list = [group.split(str(item)) for group in text.split(str(group))]
         
     # return list of lists
     return list
+
+def toList(text, group="\n"):
+    
+    return text.split(str(group))
         
 ########### EOF ############

@@ -3,6 +3,7 @@ import os
 import tools.texttolists as tl
 
 ############################
+# Variables
 
 decode = {
     "A" : 1, # Rock
@@ -26,6 +27,7 @@ responseMatrix = [
 ]
 
 ############################
+# Functions
 
 def day2(rounds):
     print("Day 2 - Rock, Paper, Scissors")

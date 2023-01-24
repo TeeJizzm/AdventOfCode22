@@ -6,7 +6,7 @@ import tools.sumlist as sl
 ############################
 
 def day1(filepath):
-    print("Day 1 - Calorie Counting")
+    print("Day 01 - Calorie Counting")
     
     # Get a list of elves from the file
     ## \n\n to divide data into groups/elves

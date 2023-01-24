@@ -1,23 +1,45 @@
+## ################################ ##
+### ### ### Advent of Code ### ### ###
+# www.github.com/TeeJizzm/AdventOfCode
+## ################################ ##
+
+## Day XX
+
+############################
+# Imports
+
 import os
 
 import tools.texttolists as tl
 
 ############################
+# Variables
+
+
+
+############################
+# Functions
 
 def dayXX(text):
-    print("Day XX - Name")
+    print("Day XX - *NAME*")
+    
+    part1, part2 = text
     
     
+    
+    print("Part 1: ", part1)
+    print("Part 2: ", part2)
     
 ############################
-
-# Run script with chosen file
+# Run main
 
 if __name__ == "__main__":
+    day = "dayXX" 
+    
     # Change file
     #######
-    day = "dayXX" 
-    file = "example.txt"
+    file = "ex.txt"
+    #file = "in.txt"
     #######
     
     # Get absolute filepath of file

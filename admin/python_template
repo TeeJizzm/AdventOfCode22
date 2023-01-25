@@ -23,7 +23,7 @@ import tools.texttolists as tl
 def dayXX(text):
     print("Day XX - *NAME*")
     
-    part1, part2 = text
+    part1, part2 = text, ''
     
     
     
@@ -34,7 +34,7 @@ def dayXX(text):
 # Run main
 
 if __name__ == "__main__":
-    day = "dayXX" 
+    day = "dayXX/inc" 
     
     # Change file
     #######

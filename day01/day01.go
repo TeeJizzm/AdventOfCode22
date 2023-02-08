@@ -14,21 +14,24 @@ import (
 	// Input/Output
 	"fmt"
 	"io/ioutil"
+
 	// String manipulation
-	//"strings"
-	//"strconv"
-	// Other required imports
+	"strconv"
+	"strings"
+
+	// Day specific
+	"sort"
 )
 
 /* -----------------------------------
 // Functions */
 
 func main() {
-	fmt.Println("Day 01 - *NAME*")
+	fmt.Println("Day 01 - Calorie Counting")
 
 	// ------------ File -------------
 
-	//*/ - File switch
+	/*/ - File switch
 	file, err := ioutil.ReadFile("day01/inc/ex.txt")
 	/*/ //
 	file, err := ioutil.ReadFile("day01/inc/in.txt")
@@ -43,13 +46,45 @@ func main() {
 
 	// ----------- Setup -------------
 
-	part1 := ""
-	part2 := ""
+	elves := strings.Split(text, "\n\n")
+
+	cals := make([]int, len(elves))
+
+	for j, elf := range elves {
+		cals[j] = 0
+
+		items := strings.Fields(elf)
+
+		for _, cal := range items {
+			if cal == "" {
+				break
+			}
+			i, err := strconv.Atoi(cal)
+			if err != nil {
+				panic(err)
+			}
+			cals[j] += i
+		}
+	}
+
+	//fmt.Println(cals)
 
 	// ----------- Output ------------
 
-	fmt.Println("Part 1:", part1)
-	fmt.Println("Part 2:", part2)
-}
+	fmt.Println("Part 1:", sumTop(cals, 1))
+	fmt.Println("Part 2:", sumTop(cals, 3))
+
+} // End main
 
 // -----------------------------------
+
+func sumTop(array []int, num int) int {
+	srt := array[:]
+	sort.Ints(srt)
+	total := 0
+
+	for i := 1; i <= num; i++ {
+		total += srt[len(srt)-i]
+	}
+	return total
+}

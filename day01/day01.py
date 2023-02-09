@@ -12,6 +12,8 @@ import os
 
 import tools.texttolists as tl
 
+import tools.sumlist as sl
+
 ############################
 # Variables
 
@@ -21,12 +23,24 @@ import tools.texttolists as tl
 # Functions
 
 def day01(text):
-    print("Day 01 - *NAME*")
+    print("Day 01 - Calorie Counting")
+
+    elves = tl.toList(text, "\n\n")
+    elves = [elf.splitlines() for elf in elves]
+
+    calories = []
+
+    # Calculate the total calories carried by each elf
+    for elf in elves:
+        print(elf)
+        calorie = [int(item) for item in elf]
+        calories.append(sum(calorie))
+
+        #print(calorie)
     
-    part1, part2 = text, ''
-    
-    
-    
+    part1 = sl.sumTopList(calories)
+    part2 = sl.sumTopList(calories, 3)
+
     return part1, part2
 
 ############################
@@ -37,10 +51,10 @@ if __name__ == "__main__":
     
     # Change file
     #######
-    file = "ex.txt"
-    #file = "in.txt"
+    #file = "ex.txt"
+    file = "in.txt"
     #######
-    
+
     # Get absolute filepath of file
     filepath = os.path.join(os.getcwd(), day, file)
     

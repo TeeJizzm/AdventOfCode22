@@ -3,7 +3,7 @@
 
 ###########################
 
-def to2dLists(text, group="\n", item=","):
+def to2dLists(text="", group="\n", item=","):
 
     # Split text into groups, split groups into items
     list = [group.split(str(item)) for group in text.split(str(group))]
@@ -11,7 +11,7 @@ def to2dLists(text, group="\n", item=","):
     # return list of lists
     return list
 
-def toList(text, group="\n"):
+def toList(text="", group="\n"):
     
     return text.split(str(group))
         

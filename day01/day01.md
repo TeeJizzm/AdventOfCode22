@@ -72,7 +72,7 @@ Use data saved in *input1.txt*.
 
 ### Answer
 
-`70296*`
+`70296`
 
 ## Part 2
 

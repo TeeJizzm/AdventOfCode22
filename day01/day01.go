@@ -41,13 +41,13 @@ func main() {
 		fmt.Println(err)
 	}
 
-	text := string(file)
+	// Added fix for Windows newline
+	text := strings.ReplaceAll(string(file), "\r\n", "\n")
 	//fmt.Print(text)
 
 	// ----------- Setup -------------
 
-	// Added fix for Windows newline
-	elves := strings.Split(strings.ReplaceAll(text, "\r\n", "\n"), "\n\n")
+	elves := strings.Split(text, "\n\n")
 
 	cals := make([]int, len(elves))
 

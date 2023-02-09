@@ -18,3 +18,18 @@ To import the scripts, use either:
 ``` python
     from tools import [scriptname] (as [alias])
 ```
+
+Python files can be run from within VS code's editor,
+or by running the following in the terminal:
+
+```cmd
+    python dayXX/dayXX.py
+```
+
+## Go
+
+Go files can be run from the terminal with the following:
+
+```cmd
+    go run dayXX/dayXX.go
+```

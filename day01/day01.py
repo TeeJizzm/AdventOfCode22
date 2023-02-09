@@ -32,7 +32,7 @@ def day01(text):
 
     # Calculate the total calories carried by each elf
     for elf in elves:
-        print(elf)
+        
         calorie = [int(item) for item in elf]
         calories.append(sum(calorie))
 

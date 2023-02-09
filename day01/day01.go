@@ -31,7 +31,7 @@ func main() {
 
 	// ------------ File -------------
 
-	/*/ - File switch
+	//*/ - File switch
 	file, err := ioutil.ReadFile("day01/inc/ex.txt")
 	/*/ //
 	file, err := ioutil.ReadFile("day01/inc/in.txt")
@@ -46,7 +46,8 @@ func main() {
 
 	// ----------- Setup -------------
 
-	elves := strings.Split(text, "\n\n")
+	// Added fix for Windows newline
+	elves := strings.Split(strings.ReplaceAll(text, "\r\n", "\n"), "\n\n")
 
 	cals := make([]int, len(elves))
 
@@ -56,8 +57,8 @@ func main() {
 		items := strings.Fields(elf)
 
 		for _, cal := range items {
-			if cal == "" {
-				break
+			if cal != "" {
+
 			}
 			i, err := strconv.Atoi(cal)
 			if err != nil {

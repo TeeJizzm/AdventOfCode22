@@ -35,8 +35,6 @@ def day01(text):
         
         calorie = [int(item) for item in elf]
         calories.append(sum(calorie))
-
-        #print(calorie)
     
     part1 = sl.sumTopList(calories)
     part2 = sl.sumTopList(calories, 3)

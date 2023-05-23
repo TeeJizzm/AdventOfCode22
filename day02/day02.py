@@ -15,18 +15,49 @@ import tools.texttolists as tl
 ############################
 # Variables
 
+decrypt = {
+    "A": 1, # Rock
+    "X": 1,
+    "B": 2, # Paper
+    "Y": 2,
+    "C": 3, # Scissors
+    "Z": 3
+}
 
+mat_part1 = [
+    [4, 8, 3], 
+    [1, 5, 9],
+    [7, 2, 6]
+]
+#    a      b      c
+#[[x,y,z][x,y,z][x,y,z]]
+#[[3,6,0][0,3,6][6,0,3]]
+
+mat_part2 = [
+    [3, 4, 8],
+    [1, 5, 9],
+    [2, 6, 7]
+]
+#    a      b      c
+#[[0,3,6][0,3,6][0,3,6]]
+#[[z,x,y][x,y,z][y,z,x]]
 
 ############################
 # Functions
 
 def day02(text):
-    print("Day 02 - *NAME*")
+    print("Day 02 - Rock Paper Scissors")
     
-    part1, part2 = text, ''
+    rounds = tl.to2dLists(text, "\n", " ")
     
+    part1, part2 = 0, 0
     
-    
+    for opp, player in rounds:
+        
+        part1 += mat_part1[decrypt[opp]-1] [decrypt[player]-1]
+            
+        part2 += mat_part2[decrypt[opp]-1] [decrypt[player]-1]
+        
     return part1, part2
 
 ############################
@@ -37,8 +68,8 @@ if __name__ == "__main__":
     
     # Change file
     #######
-    file = "ex.txt"
-    #file = "in.txt"
+    #file = "ex.txt"
+    file = "in.txt"
     #######
     
     # Get absolute filepath of file
